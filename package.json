@@ -1,0 +1,99 @@
+{
+  "name": "content-preview",
+  "version": "0.0.1",
+  "description": "Content Preview for Nuxt Content",
+  "repository": "@nuxtlabs/content-preview",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "npm run dev:prepare && nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@farnabaz/mdc-editor": "0.0.1",
+    "@nuxt/kit": "^4.0.3",
+    "@nuxt/ui": "^3.3.2",
+    "@nuxt/ui-pro": "^3.2.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tiptap/core": "latest",
+    "@tiptap/extension-blockquote": "^3.1.0",
+    "@tiptap/extension-bold": "^3.1.0",
+    "@tiptap/extension-bullet-list": "^3.1.0",
+    "@tiptap/extension-code": "^3.1.0",
+    "@tiptap/extension-code-block": "^3.1.0",
+    "@tiptap/extension-collaboration": "^3.1.0",
+    "@tiptap/extension-collaboration-cursor": "^2.26.1",
+    "@tiptap/extension-document": "^3.1.0",
+    "@tiptap/extension-dropcursor": "^3.1.0",
+    "@tiptap/extension-gapcursor": "^3.1.0",
+    "@tiptap/extension-hard-break": "^3.1.0",
+    "@tiptap/extension-heading": "^3.1.0",
+    "@tiptap/extension-image": "^3.1.0",
+    "@tiptap/extension-italic": "^3.1.0",
+    "@tiptap/extension-list-item": "^3.1.0",
+    "@tiptap/extension-ordered-list": "^3.1.0",
+    "@tiptap/extension-paragraph": "^3.1.0",
+    "@tiptap/extension-placeholder": "^3.1.0",
+    "@tiptap/extension-strike": "^3.1.0",
+    "@tiptap/extension-text": "^3.1.0",
+    "@tiptap/suggestion": "^3.1.0",
+    "@tiptap/vue-3": "latest",
+    "@unhead/vue": "^2.0.14",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vueuse/core": "^13.7.0",
+    "debug": "^4.4.1",
+    "eslint": "^9.31.0",
+    "eslint-plugin-vue": "^10.3.0",
+    "idb-keyval": "^6.2.2",
+    "minimatch": "^10.0.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0",
+    "vite": "^7.1.2",
+    "vite-plugin-libcss": "^1.1.2",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1",
+    "vue-tsc": "^3.0.1"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^2.6.2",
+    "@nuxt/eslint-config": "^1.8.0",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.0.3",
+    "@nuxt/test-utils": "^3.19.2",
+    "@nuxt/ui-pro": "3.3.2",
+    "@types/node": "latest",
+    "changelogen": "^0.6.2",
+    "eslint": "^9.33.0",
+    "nuxt": "^4.0.3",
+    "typescript": "~5.9.2",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.5"
+  },
+  "resolutions": {
+    "@nuxt/content": "https://pkg.pr.new/@nuxt/content@8488733"
+  }
+}
